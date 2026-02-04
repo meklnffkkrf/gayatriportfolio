@@ -3,213 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAYATRI JADHAV | Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Gayatri Jadhav | Driven, Curious, and Tech-Savvy </title>
     <style>
+        :root {
+            /* DARK THEME - High Contrast */
+            --bg-body: #0b1120;       /* Very Dark Blue */
+            --bg-card: #1e293b;       /* Slate */
+            --primary: #6366f1;       /* Indigo */
+            --primary-hover: #4f46e5;
+            --secondary: #d946ef;     /* Fuchsia */
+            --text-white: #ffffff;
+            --text-gray: #cbd5e1;
+            --accent-gold: #fbbf24;   /* For Certifications */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #E5E7EB;
+            background-color: var(--bg-body);
+            color: var(--text-white);
+            line-height: 1.6;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem;
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: rgba(11, 17, 32, 0.9);
+            border-bottom: 1px solid #334155;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .section-title {
-            font-size: 2.75rem;
-            font-weight: 800;
-            margin-bottom: 2rem;
-            position: relative;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .btn-secondary {
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 10%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-white);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            color: var(--text-gray);
+        }
+
+        .skill-tag.highlight {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* CERTIFICATIONS (Moved Up) */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent-gold);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .cert-card p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .badge {
             display: inline-block;
-            color: #FFFFFF;
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--accent-gold);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50%;
-            height: 4px;
-            background-color: #3B82F6;
-        }
+
+        /* Projects */
         .project-card {
-            background-color: #0d0d0d;
-            border: 1px solid #262626;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--bg-card);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            border: 1px solid #334155;
         }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
         }
-        .nav-link:hover {
-            color: #3B82F6;
-            transform: scale(1.05);
-            transition: transform 0.2s, color 0.2s;
+
+        .project-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
         }
-        .hero-text-container {
-            animation: fadeIn 2s ease-in-out;
+
+        /* Contact & Footer */
+        .contact-box {
+            text-align: center;
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 20px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #020617;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .button-group { flex-direction: column; }
         }
     </style>
 </head>
-<body class="bg-black text-gray-200">
+<body>
 
-    <!-- Header & Navigation -->
-    <header class="py-6 px-4 md:px-8 bg-black bg-opacity-80 sticky top-0 z-50">
-        <nav class="container flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-500 tracking-wider nav-link">GAYATRI JADHAV</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-gray-300 hover:text-blue-500 transition-colors nav-link">About</a>
-                <a href="#projects" class="text-gray-300 hover:text-blue-500 transition-colors nav-link">Projects</a>
-                <a href="#skills" class="text-gray-300 hover:text-blue-500 transition-colors nav-link">Skills</a>
-                <a href="mailto:gayatrijadhav880@gmail.com" class="text-gray-300 hover:text-blue-500 transition-colors nav-link">Contact</a>
-            </div>
-        </nav>
+    <nav>
+        <div class="logo">Gayatri.dev</div>
+        <div class="nav-links">
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certificates</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Connect</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Hi, I'm <span>Gayatri</span></h1>
+        <p>Fresher | Cloud Enthusiast | AI & Machine Learning Explorer</p>
+        
+        <div class="button-group">
+            <a href="mailto:gayatrijadhav880@gmail.com" class="btn-primary">Email Me</a>
+            <a href="https://www.linkedin.com/in/gayatri-jadhav-b49179320/" target="_blank" class="btn-secondary">
+                Connect on LinkedIn
+            </a>
+        </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="min-h-screen flex items-center justify-center text-center px-4" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x1080/000000/FFFFFF?text=GAYATRI+JADHAV'); background-size: cover; background-position: center;">
-            <div class="hero-text-container bg-gray-900 bg-opacity-70 rounded-xl p-8 md:p-16 shadow-2xl">
-                <h1 class="text-4xl md:text-7xl font-extrabold leading-tight tracking-tighter text-white">
-                    I'm exploring the future with <span class="text-blue-500">AI</span> and <span class="text-blue-500">Code</span>.
-                </h1>
-                <p class="mt-6 text-lg md:text-2xl text-gray-300 max-w-4xl mx-auto font-light">
-                    A dedicated developer building foundational knowledge in AI and web solutions, I'm eager to apply what I'm learning to solve real-world challenges.
-                </p>
-                <a href="#projects" class="mt-10 inline-block px-10 py-4 bg-blue-500 text-white font-bold rounded-full text-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-blue-600">Explore My Work</a>
+    <section id="skills">
+        <h2>Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-tag">Java (Core)</div>
+            <div class="skill-tag highlight">Artificial Intelligence</div>
+            <div class="skill-tag highlight">Machine Learning</div>
+            <div class="skill-tag">Data Analysis</div>
+            <div class="skill-tag">Python & Pandas</div>
+            <div class="skill-tag">AWS (EC2, S3, Lambda)</div>
+            <div class="skill-tag">SQL & MySQL</div>
+            <div class="skill-tag">Figma</div>
+            <div class="skill-tag">MS Excel</div>
+            <div class="skill-tag">MS PowerPoint</div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="certs-grid">
+            <div class="cert-card">
+                <span class="badge">AWS CERTIFIED</span>
+                <h3>Solutions Architect - Associate</h3>
+                <p>Amazon Web Services</p>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20 px-4 md:px-8">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <p class="text-gray-300 leading-relaxed text-lg">
-                            I am a passionate Bachelor of Technology student specializing in web development and artificial intelligence. My work is driven by a curiosity to create efficient, transparent, and user-centric solutions. From developing an AI image segmentation tool to participating in team-based projects, I am focused on building a strong technical foundation and making a positive impact.
-                        </p>
-                        <p class="mt-4 text-gray-300 leading-relaxed text-lg">
-                            I am currently pursuing my Bachelor of Technology at the Bajaj Institute of Technology, where I'm actively building my skills in software engineering and data analysis. I'm a quick learner and a dedicated team member, always eager to take on new challenges and contribute to innovative projects.
-                        </p>
-                    </div>
-                    <div class="bg-gray-900 rounded-xl p-8 shadow-inner">
-                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Personal Details</h3>
-                        <ul class="space-y-4 text-gray-400">
-                            <li><strong>Email:</strong> <a href="mailto:gayatrijadhav880@gmail.com" class="hover:text-blue-500 transition-colors">gayatrijadhav880@gmail.com</a></li>
-                            <li><strong>Phone:</strong> +918805258782</li>
-                            <li><strong>Education:</strong> Bachelor of Technology (2022-2026)</li>
-                            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/gayatri-jadhav-b49179320/" target="_blank" class="text-blue-400 hover:underline flex items-center gap-2"><i class="fab fa-linkedin"></i> linkedin.com/in/gayatri-jadhav-b49179320/</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="cert-card">
+                <span class="badge">AWS CERTIFIED</span>
+                <h3>Cloud Practitioner</h3>
+                <p>Amazon Web Services</p>
             </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 px-4 md:px-8 bg-gray-950">
-            <div class="container">
-                <h2 class="section-title text-center mx-auto">Featured Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-                    <!-- Project 1: AI Image Segmentation Tool -->
-                    <a href="https://huggingface.co/spaces/ImageGenius-AI/my-image-segmentation" target="_blank" class="block">
-                        <div class="project-card rounded-xl p-8 h-full flex flex-col relative">
-                            <span class="bg-blue-900 text-blue-200 text-xs px-4 py-1 rounded-full font-semibold absolute top-4 right-4">Personal Project</span>
-                            <img src="https://placehold.co/600x400/1e293b/a5f3fc?text=AI+Image+Segmentation" alt="AI Image Segmentation Tool" class="rounded-lg mb-6 w-full h-auto object-cover flex-shrink-0">
-                            <h3 class="text-2xl font-bold text-blue-400">AI Image Segmentation Tool</h3>
-                            <p class="text-gray-400 mt-3 flex-grow">
-                                Developed an AI tool using DeepLabV3 and PyTorch to perform image segmentation. This project demonstrates hands-on experience in computer vision and cloud-based AI deployment.
-                            </p>
-                            <div class="mt-6 flex flex-wrap gap-2">
-                                <span class="bg-blue-900 text-blue-200 text-xs px-4 py-1 rounded-full font-semibold">PyTorch</span>
-                                <span class="bg-blue-900 text-blue-200 text-xs px-4 py-1 rounded-full font-semibold">DeepLabV3</span>
-                                <span class="bg-blue-900 text-blue-200 text-xs px-4 py-1 rounded-full font-semibold">Gradio</span>
-                                <span class="bg-blue-900 text-blue-200 text-xs px-4 py-1 rounded-full font-semibold">Hugging Face</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Project 2: E-Matdaan: Web-Based Voting System -->
-                    <a href="https://ematdaan.vercel.app/" target="_blank" class="block">
-                        <div class="project-card rounded-xl p-8 h-full flex flex-col">
-                            <img src="https://placehold.co/600x400/1e293b/a5f3fc?text=E-Matdaan" alt="E-Matdaan" class="rounded-lg mb-6 w-full h-auto object-cover flex-shrink-0">
-                            <h3 class="text-2xl font-bold text-blue-400">E-Matdaan: Web-Based Voting System</h3>
-                            <p class="text-gray-400 mt-3 flex-grow">
-                                Engineered a secure online voting platform using a Supabase backend and MetaMask for decentralized user authentication. The system was designed for transparency and ease of use.
-                            </p>
-                            <div class="mt-6 flex flex-wrap gap-2">
-                                <span class="bg-blue-900 text-blue-200 text-xs px-4 py-1 rounded-full font-semibold">Supabase</span>
-                                <span class="bg-blue-900 text-blue-200 text-xs px-4 py-1 rounded-full font-semibold">MetaMask</span>
-                                <span class="bg-blue-900 text-blue-200 text-xs px-4 py-1 rounded-full font-semibold">Web Development</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            <div class="cert-card">
+                <span class="badge">WINNER</span>
+                <h3>Machine Learning Hackathon</h3>
+                <p>Code Craft Hackathon</p>
             </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 px-4 md:px-8">
-            <div class="container">
-                <h2 class="section-title">Core Competencies</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Technical Skills -->
-                    <div class="bg-gray-900 rounded-xl p-8 shadow-inner">
-                        <h3 class="text-xl font-bold mb-4 text-blue-400">Technical Skills</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-300">
-                            <li>Web Development (HTML/CSS, JavaScript, PHP, Figma)</li>
-                            <li>Data Science & AI (C, Python, PyTorch, DeepLabV3)</li>
-                            <li>Cloud Technologies (AWS, Google Cloud, Hugging Face)</li>
-                            <li>Database Management (SQL, Supabase)</li>
-                            <li>Tools & Software (Adobe Photoshop, Canva, MS Office)</li>
-                        </ul>
-                    </div>
-                    <!-- Soft Skills -->
-                    <div class="bg-gray-900 rounded-xl p-8 shadow-inner">
-                        <h3 class="text-xl font-bold mb-4 text-blue-400">Soft Skills</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-300">
-                            <li>Interpersonal Communication & Team Leadership</li>
-                            <li>Problem-Solving & Adaptability</li>
-                            <li>Project Management & Organization</li>
-                            <li>Innovative Thinking & Creativity</li>
-                        </ul>
-                    </div>
-                    <!-- Certifications & Awards -->
-                    <div class="bg-gray-900 rounded-xl p-8 shadow-inner">
-                        <h3 class="text-xl font-bold mb-4 text-blue-400">Certifications & Awards</h3>
-                        <ul class="list-disc list-inside space-y-2 text-gray-300">
-                            <li>AWS Certified Cloud Practitioner</li>
-                            <li>AWS Certified Solutions Architect - Associate</li>
-                            <li>Introduction to Data Science - Google</li>
-                            <li>Introduction to Generative AI - Google Cloud</li>
-                            <li>Job Simulation - Accenture</li>
-                            <li>Code Craft Hackathon (2nd Place)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-950 py-8 px-4 md:px-8 text-center text-gray-500">
-        <div class="container">
-            <p>&copy; 2025 Gayatri Jadhav. All Rights Reserved.</p>
-            <div class="mt-4 space-x-6">
-                <a href="https://www.linkedin.com/in/gayatri-jadhav-b49179320/" target="_blank" class="hover:text-blue-500 transition-colors"><i class="fab fa-linkedin-in text-xl"></i></a>
-                <a href="mailto:gayatrijadhav880@gmail.com" class="hover:text-blue-500 transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+            <div class="cert-card">
+                <span class="badge">COURSE</span>
+                <h3>Java Full Stack Development</h3>
+                <p>QSpiders & Coursera</p>
             </div>
         </div>
+    </section>
+
+    <section id="projects">
+        <h2>Featured Projects</h2>
+        
+        <div class="project-card">
+            <h3>E-Matdaan: Web Voting System</h3>
+            <p><strong>Stack:</strong> JavaScript, Supabase, MetaMask</p>
+            <p>A secure, blockchain-enabled online voting platform designed for election transparency. Features real-time dashboards and accessible UI.</p>
+            <a href="https://ematdaan.vercel.app/" target="_blank" class="project-link">Visit Website →</a>
+        </div>
+
+        <div class="project-card">
+            <h3>AI Image Segmentation Tool</h3>
+            <p><strong>Stack:</strong> Python, PyTorch, AWS</p>
+            <p>Developed an AI tool using DeepLabV3 for accurate image segmentation. Deployed on Hugging Face Spaces demonstrating cloud integration.</p>
+        </div>
+
+        <div class="project-card">
+            <h3>Employee Management System</h3>
+            <p><strong>Stack:</strong> Java (Core), JDBC, MySQL</p>
+            <p>A robust desktop application for managing employee records with persistent data storage and secure database connectivity.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <h2>Let's Work Together</h2>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">Open for opportunities in Cloud Computing and AI.</p>
+            
+            <div class="button-group" style="justify-content: center;">
+                <a href="mailto:gayatrijadhav880@gmail.com" class="btn-primary">gayatrijadhav880@gmail.com</a>
+                <a href="https://www.linkedin.com/in/gayatri-jadhav-b49179320/" target="_blank" class="btn-secondary">
+                    LinkedIn Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Gayatri Jadhav. Built with code.</p>
     </footer>
 
 </body>
